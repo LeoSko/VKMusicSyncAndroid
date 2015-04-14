@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VKMusicSync</string>
     <string name="action_exit">Выход</string>
     <string name="action_settings">Настройки</string>
     <string name="hello_world"></string>
+    <string name="title_activity_prefs">Настройки</string>
+    <string name="pref_login_state">Текущее состояние</string>
+    <string name="pref_title_login">Вход/выход</string>
+    <string name="pref_login_state_offline">Оффлайн</string>
+    <string name="pref_login_state_online">Онлайн</string>
+    <string name="state_offline">Оффлайн</string>
+    <string name="current_state">Состояние: </string>
+    <string name="state_online">Онлайн</string>
 </resources>
