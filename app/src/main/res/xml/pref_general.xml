@@ -5,4 +5,11 @@
         android:title="@string/pref_title_login"
         android:summary="@string/pref_login_state"
         />
+    <ListPreference
+        android:key="pref_countOfTracks"
+        android:title="@string/pref_count_of_tracks_title"
+        android:summary="@string/pref_count_of_tracks_summary"
+        android:entries="@array/count_values"
+        android:entryValues="@array/count_values"
+        />
 </PreferenceScreen>

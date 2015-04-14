@@ -11,4 +11,7 @@
     <string name="state_offline">Оффлайн</string>
     <string name="current_state">Состояние: </string>
     <string name="state_online">Онлайн</string>
+    <string name="pref_count_of_tracks_summary">Число треков для синхронизации</string>
+    <string name="pref_count_of_tracks_title">Кол-во треков</string>
+    <string name="pref_header_about">О нас</string>
 </resources>

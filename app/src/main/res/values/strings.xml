@@ -15,4 +15,6 @@
     <string name="current_state">Current state: </string>
     <string name="state_offline">Offline</string>
     <string name="state_online">Online</string>
+    <string name="pref_count_of_tracks_title">Count of tracks</string>
+    <string name="pref_count_of_tracks_summary">The amount of tracks to sync</string>
 </resources>
