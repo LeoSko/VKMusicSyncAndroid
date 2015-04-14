@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.vk.sdk.VKAccessToken;
@@ -56,6 +58,25 @@ public class SyncActivity extends ActionBarActivity
                 Log.d("onAccessDenied", authorizationError.toString());
             }
         }, APP_ID, VKAccessToken.tokenFromSharedPreferences(getApplicationContext(), "access_token"));
+        Button refreshBtn = (Button) findViewById(R.id.refreshButton);
+        refreshBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        Button syncBtn = (Button) findViewById(R.id.syncButton);
+        syncBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                
+            }
+        });
     }
 
 
