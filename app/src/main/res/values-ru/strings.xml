@@ -19,4 +19,6 @@
     <string name="pref_about_title">О нас</string>
     <string name="pref_header_general">Общие</string>
     <string name="pref_header_data_sync">Синхронизация</string>
+    <string name="pref_directory_title">Папка</string>
+    <string name="pref_directory_summary">Куда синхронизировать</string>
 </resources>

@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Environment;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -100,6 +101,29 @@ public class PrefsActivity extends PreferenceActivity
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().remove("access_token").commit();
                     findPreference("pref_login").setSummary(getResources().getString(R.string.pref_login_state_offline));
                 }
+                return true;
+            }
+        });
+        findPreference("pref_directory").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                DirectoryChooserDialog dirChoser = new DirectoryChooserDialog(PrefsActivity.this,
+                        new DirectoryChooserDialog.ChosenDirectoryListener()
+                {
+                    @Override
+                    public void onChosenDir(String chosenDir)
+                    {
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
+                                .putString("pref_directory", chosenDir).commit();
+                    }
+                });
+                // we need "new folder" button, whoaoaa
+                //dirChoser.setNewFolderEnabled(false);
+                String curDir = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                        .getString("pref_directory", Environment.getExternalStorageDirectory().toString());
+                dirChoser.chooseDirectory(curDir);
                 return true;
             }
         });

@@ -21,4 +21,6 @@
     <string name="sync_button" translatable="false">SyncIt!</string>
     <string name="title_activity_prefs">Settings</string>
     <string name="hello_world"></string>
+    <string name="pref_directory_title">Directory</string>
+    <string name="pref_directory_summary">Place to sync to</string>
 </resources>
