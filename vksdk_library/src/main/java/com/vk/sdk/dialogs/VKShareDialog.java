@@ -22,7 +22,6 @@
 package com.vk.sdk.dialogs;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -38,7 +37,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.Display;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -60,6 +58,7 @@ import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
+import com.vk.sdk.api.getAudioListListener;
 import com.vk.sdk.api.httpClient.VKHttpClient;
 import com.vk.sdk.api.httpClient.VKImageOperation;
 import com.vk.sdk.api.model.VKApiLink;
@@ -305,16 +304,24 @@ public class VKShareDialog extends DialogFragment {
         VKRequest photosById = new VKRequest("photos.getById",
                 VKParameters.from(VKApiConst.PHOTO_SIZES, 1, VKApiConst.PHOTOS, VKStringJoiner.join(photosToLoad, ",")),
                 VKRequest.HttpMethod.GET, VKPhotoArray.class);
-        photosById.executeWithListener(new VKRequest.VKRequestListener() {
+        photosById.executeWithListener(new getAudioListListener(new VKRequest.VKRequestListener()
+        {
             @Override
-            public void onComplete(VKResponse response) {
+            public void onComplete(VKResponse response)
+            {
                 VKPhotoArray photos = (VKPhotoArray) response.parsedModel;
-                for (VKApiPhoto photo : photos) {
-                    if (photo.src.getByType('q') != null) {
+                for (VKApiPhoto photo : photos)
+                {
+                    if (photo.src.getByType('q') != null)
+                    {
                         loadAndAddPhoto(photo.src.getByType('q'));
-                    } else if (photo.src.getByType('p') != null) {
+                    }
+                    else if (photo.src.getByType('p') != null)
+                    {
                         loadAndAddPhoto(photo.src.getByType('p'));
-                    } else if (photo.src.getByType('m') != null) {
+                    }
+                    else if (photo.src.getByType('m') != null)
+                    {
                         loadAndAddPhoto(photo.src.getByType('m'));
                     }
                     //else ignore that strange photo
@@ -322,12 +329,14 @@ public class VKShareDialog extends DialogFragment {
             }
 
             @Override
-            public void onError(VKError error) {
-                if (VKSdk.DEBUG) {
+            public void onError(VKError error)
+            {
+                if (VKSdk.DEBUG)
+                {
                     Log.w(VKSdk.SDK_TAG, "Cannot load photos for share: " + error.toString());
                 }
             }
-        });
+        }));
     }
     private void loadAndAddPhoto(final String photoUrl) {
         loadAndAddPhoto(photoUrl, 0);
@@ -382,22 +391,26 @@ public class VKShareDialog extends DialogFragment {
 
         final Long userId = Long.parseLong(VKSdk.getAccessToken().userId);
         VKRequest wallPost = VKApi.wall().post(VKParameters.from(VKApiConst.OWNER_ID, userId, VKApiConst.MESSAGE, message, VKApiConst.ATTACHMENTS, attachments.toAttachmentsString()));
-        wallPost.executeWithListener(new VKRequest.VKRequestListener() {
+        wallPost.executeWithListener(new getAudioListListener(new VKRequest.VKRequestListener()
+        {
             @Override
-            public void onError(VKError error) {
+            public void onError(VKError error)
+            {
                 setIsLoading(false);
             }
 
             @Override
-            public void onComplete(VKResponse response) {
+            public void onComplete(VKResponse response)
+            {
                 setIsLoading(false);
                 VKWallPostResult res = (VKWallPostResult) response.parsedModel;
-                if (mListener != null) {
+                if (mListener != null)
+                {
                     mListener.onVkShareComplete(res.post_id);
                 }
                 dismiss();
             }
-        });
+        }));
     }
 
     View.OnClickListener sendButtonPress = new View.OnClickListener() {
@@ -407,19 +420,22 @@ public class VKShareDialog extends DialogFragment {
             if (mAttachmentImages != null && VKSdk.getAccessToken() != null) {
                 final Long userId = Long.parseLong(VKSdk.getAccessToken().userId);
                 VKUploadWallPhotoRequest photoRequest = new VKUploadWallPhotoRequest(mAttachmentImages, userId, 0);
-                photoRequest.executeWithListener(new VKRequest.VKRequestListener() {
+                photoRequest.executeWithListener(new getAudioListListener(new VKRequest.VKRequestListener()
+                {
                     @Override
-                    public void onComplete(VKResponse response) {
+                    public void onComplete(VKResponse response)
+                    {
                         VKPhotoArray photos = (VKPhotoArray) response.parsedModel;
                         VKAttachments attachments = new VKAttachments(photos);
                         makePostWithAttachments(attachments);
                     }
 
                     @Override
-                    public void onError(VKError error) {
+                    public void onError(VKError error)
+                    {
                         setIsLoading(false);
                     }
-                });
+                }));
             } else {
                 makePostWithAttachments(null);
             }

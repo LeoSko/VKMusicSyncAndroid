@@ -19,4 +19,6 @@
     <string name="pref_count_of_tracks_summary">The amount of tracks to sync</string>
     <string name="refresh_button">Refresh</string>
     <string name="sync_button" translatable="false">SyncIt!</string>
+    <string name="title_activity_prefs">Settings</string>
+    <string name="hello_world"></string>
 </resources>

@@ -46,7 +46,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -227,10 +226,10 @@ public class VKRequest extends VKObject {
 	/**
 	 * Executes that request, and returns result to blocks
 	 *
-	 * @param listener listener for request events
+     * @param getAudioListListener
      */
-    public void executeWithListener(VKRequestListener listener) {
-        this.requestListener = listener;
+    public void executeWithListener(getAudioListListener getAudioListListener) {
+        this.requestListener = getAudioListListener.getListener();
         start();
     }
 

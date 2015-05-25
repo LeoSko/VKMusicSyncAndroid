@@ -33,10 +33,19 @@
                 android:id="@+id/currentState" />
         </LinearLayout>
 
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioListView"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:choiceMode="none"
+            android:padding="5dp"/>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:gravity="center_horizontal">
 

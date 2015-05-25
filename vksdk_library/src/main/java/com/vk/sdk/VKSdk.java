@@ -29,6 +29,7 @@ import android.webkit.CookieSyncManager;
 
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
+import com.vk.sdk.api.getAudioListListener;
 import com.vk.sdk.util.VKStringJoiner;
 import com.vk.sdk.util.VKUtil;
 
@@ -427,15 +428,18 @@ public class VKSdk {
     }
 
     private void trackVisitor() {
-        new VKRequest("stats.trackVisitor").executeWithListener(new VKRequest.VKRequestListener() {
+        new VKRequest("stats.trackVisitor").executeWithListener(new getAudioListListener(new VKRequest.VKRequestListener()
+        {
             @Override
-            public void onError(VKError error) {
-                if (error != null && error.apiError != null && error.apiError.errorCode == 5) {
+            public void onError(VKError error)
+            {
+                if (error != null && error.apiError != null && error.apiError.errorCode == 5)
+                {
                     VKSdk.setAccessTokenError(error.apiError);
                     sInstance.mAccessToken = null;
                     VKAccessToken.removeTokenAtKey(VKUIHelper.getApplicationContext(), VK_SDK_ACCESS_TOKEN_PREF_KEY);
                 }
             }
-        });
+        }));
     }
 }
