@@ -17,4 +17,14 @@
         android:title="@string/pref_directory_title"
         android:summary="@string/pref_directory_summary"
         />
+    <Preference
+        android:key="pref_about"
+        android:title="@string/pref_about_title"
+        android:summary="@string/pref_about_summary"
+        />
+    <Preference
+        android:key="pref_sendbug"
+        android:title="@string/pref_sendbug_title"
+        android:summary="@string/pref_sendbug_summary"
+        />
 </PreferenceScreen>

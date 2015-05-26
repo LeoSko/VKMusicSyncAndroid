@@ -1,7 +1,9 @@
 package com.leosko.vkmusicsync;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -17,6 +19,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.util.LogWriter;
 import android.util.Log;
 import android.util.LogPrinter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vk.sdk.VKScope;
@@ -124,6 +127,50 @@ public class PrefsActivity extends PreferenceActivity
                 String curDir = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                         .getString("pref_directory", Environment.getExternalStorageDirectory().toString());
                 dirChoser.chooseDirectory(curDir);
+                return true;
+            }
+        });
+        findPreference("pref_about").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                AlertDialog alertDialog = new AlertDialog.Builder(PrefsActivity.this).create();
+                String aboutTitle = getResources().getString(R.string.about_title);
+                String aboutText = getResources().getString(R.string.about_text);
+                alertDialog.setTitle(aboutTitle);
+                alertDialog.setMessage(aboutText);
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                TextView tv = (TextView) alertDialog.findViewById(android.R.id.message);
+                tv.setTextSize(14);
+                return true;
+            }
+        });
+        findPreference("pref_sendbug").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"leosko94@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+                i.putExtra(Intent.EXTRA_TEXT, "");
+                try
+                {
+
+                    startActivity(Intent.createChooser(i, getResources().getString(R.string.send_mail)));
+                }
+                catch (android.content.ActivityNotFoundException ex)
+                {
+                    Toast.makeText(PrefsActivity.this, getResources().getString(R.string.no_email_clients), Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
         });

@@ -2,7 +2,6 @@
 <resources>
     <string name="action_exit">Выход</string>
     <string name="action_settings">Настройки</string>
-    <string name="hello_world"></string>
     <string name="title_activity_prefs">Настройки</string>
     <string name="pref_login_state">Текущее состояние</string>
     <string name="pref_title_login">Вход/выход</string>
@@ -15,10 +14,16 @@
     <string name="pref_count_of_tracks_title">Кол-во треков</string>
     <string name="pref_header_about">О нас</string>
     <string name="refresh_button">Обновить</string>
-    <string name="pref_about_summary"></string>
+    <string name="pref_about_summary">Об авторах программы</string>
     <string name="pref_about_title">О нас</string>
     <string name="pref_header_general">Общие</string>
     <string name="pref_header_data_sync">Синхронизация</string>
     <string name="pref_directory_title">Папка</string>
     <string name="pref_directory_summary">Куда синхронизировать</string>
+    <string name="pref_sendbug_summary">Опишите ошибку в письме разработчику</string>
+    <string name="pref_sendbug_title">Сообщить об ошибке</string>
+    <string name="about_title">О разработчиках</string>
+    <string name="about_text">Программу написал Скороспелов Леонид для свободного распространения и использования. Исходники есть на https://github.com/LeoSko/VKMusicSyncAndroid, а также можете мне написать свои идеи и пожелания (leosko94@gmail.com).</string>
+    <string name="send_mail">Отправить письмо</string>
+    <string name="no_email_clients">Нет установленных почтовых клиентов</string>
 </resources>

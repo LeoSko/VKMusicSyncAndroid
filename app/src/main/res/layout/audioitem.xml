@@ -10,15 +10,20 @@
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="50dp"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"/>
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
             android:background="#00ffffff"
-            android:textColor="#ff000000"/>
+            android:textColor="#ff000000"
+            android:padding="5dp"
+            />
     </LinearLayout>
 </LinearLayout>

@@ -20,7 +20,12 @@
     <string name="refresh_button">Refresh</string>
     <string name="sync_button" translatable="false">SyncIt!</string>
     <string name="title_activity_prefs">Settings</string>
-    <string name="hello_world"></string>
     <string name="pref_directory_title">Directory</string>
     <string name="pref_directory_summary">Place to sync to</string>
+    <string name="pref_sendbug_title">Send bug</string>
+    <string name="pref_sendbug_summary">Send an error report</string>
+    <string name="about_title">About</string>
+    <string name="about_text">This program was created by Leonid Skorospelov for free use and contributing to. You can find sources on https://github.com/LeoSko/VKMusicSyncAndroid or email me (leosko94@gmail.com) freely to improve this software.</string>
+    <string name="send_mail">Send mail</string>
+    <string name="no_email_clients">There are no email clients installed</string>
 </resources>

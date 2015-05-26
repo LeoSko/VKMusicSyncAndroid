@@ -25,7 +25,7 @@ public class DownloadTask extends AsyncTask<Audio, Integer, String>
     private AudioListViewAdapter listViewAdapter;
     private Audio audio;
     public static String FILE_PATH_PATTERN = "%1$s/%2$s - %3$s.mp3";
-    public static String FILE_NAME_PATTERN = "%1$s - %2$s.mp3";
+    public static String FILE_NAME_PATTERN = "%1$s - %2$s";
 
     public DownloadTask(Context context, AudioListViewAdapter lva)
     {
