@@ -1,6 +1,7 @@
 package com.leosko.vkmusicsync;
 
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +10,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by LeoSko on 25.05.2015.
@@ -39,7 +42,6 @@ public class Audio
         {
             e.printStackTrace();
         }
-        countSize();
     }
 
     Audio(int duration, String title, String artist, URL url, int genre, int id)
@@ -50,10 +52,9 @@ public class Audio
         this.url = url;
         this.genre = genre;
         this.id = id;
-        countSize();
     }
 
-    private void countSize()
+    public void countSize()
     {
         this.progress = 0;
         AsyncTask<URL, Integer, Integer> task = new AsyncTask<URL, Integer, Integer>()
@@ -82,6 +83,4 @@ public class Audio
         };
         task.execute(this.url);
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.leosko.vkmusicsync;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -110,6 +112,24 @@ public class SyncActivity extends ActionBarActivity
                             {
                                 JSONObject obj = arr.getJSONObject(i);
                                 Audio na = new Audio(obj);
+                                // check if file exists
+                                String filePath = String.format(
+                                        DownloadTask.FILE_PATH_PATTERN,
+                                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                                                .getString("pref_directory", Environment.getExternalStorageDirectory().toString()),
+                                        na.artist,
+                                        na.title);
+                                File f = new File(filePath);
+                                if (f.exists())
+                                {
+                                    na.size = (int) f.length();
+                                    // TODO: it is better to also check equality of file sizes
+                                    na.progress = na.size;
+                                }
+                                else
+                                {
+                                    na.countSize();
+                                }
                                 audioList.add(na);
                             }
                         }
@@ -136,7 +156,14 @@ public class SyncActivity extends ActionBarActivity
             @Override
             public void onClick(View v)
             {
-
+                for (Audio a : audioList)
+                {
+                    if (a.progress != a.size)
+                    {
+                        DownloadTask dt = new DownloadTask(getApplicationContext(), lvAdapter);
+                        dt.execute(a);
+                    }
+                }
             }
         });
     }

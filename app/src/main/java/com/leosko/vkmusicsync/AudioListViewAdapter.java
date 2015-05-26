@@ -50,8 +50,8 @@ public class AudioListViewAdapter extends ArrayAdapter
             text.setText(res);
             if (a.size != 0)
             {
-                pb.setProgress(a.progress / a.size);
                 pb.setMax(a.size);
+                pb.setProgress(a.progress);
             }
             else
             {
