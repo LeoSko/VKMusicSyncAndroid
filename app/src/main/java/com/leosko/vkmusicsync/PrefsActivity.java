@@ -125,7 +125,7 @@ public class PrefsActivity extends PreferenceActivity
                 // we need "new folder" button, whoaoaa
                 //dirChoser.setNewFolderEnabled(false);
                 String curDir = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                        .getString("pref_directory", Environment.getExternalStorageDirectory().toString());
+                        .getString("pref_directory", Environment.DIRECTORY_MUSIC);
                 dirChoser.chooseDirectory(curDir);
                 return true;
             }

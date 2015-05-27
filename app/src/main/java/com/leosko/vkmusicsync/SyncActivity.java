@@ -25,6 +25,7 @@ import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 import com.vk.sdk.api.getAudioListListener;
+import com.vk.sdk.util.VKUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,6 +87,7 @@ public class SyncActivity extends ActionBarActivity
                 Log.d("onAccessDenied", authorizationError.toString());
             }
         }, APP_ID, VKAccessToken.tokenFromSharedPreferences(getApplicationContext(), "access_token"));
+        //String[] sert = VKUtil.getCertificateFingerprint(getApplicationContext(), "com.leosko.vkmusicsync");
         Button refreshBtn = (Button) findViewById(R.id.refreshButton);
         refreshBtn.setOnClickListener(new View.OnClickListener()
         {

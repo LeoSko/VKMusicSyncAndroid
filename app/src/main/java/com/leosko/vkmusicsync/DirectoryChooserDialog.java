@@ -30,6 +30,7 @@ public class DirectoryChooserDialog
 {
     private boolean m_isNewFolderEnabled = true;
     private String m_sdcardDirectory = "";
+    private String m_rootDirectory = "/";
     private Context m_context;
     private TextView m_titleView;
 
@@ -148,7 +149,8 @@ public class DirectoryChooserDialog
                 if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN)
                 {
                     // Back button pressed
-                    if ( m_dir.equals(m_sdcardDirectory) )
+                    if (m_dir.equals(m_rootDirectory))
+                    //if ( m_dir.equals(m_sdcardDirectory) )
                     {
                         // The very top level directory, do nothing
                         return false;
