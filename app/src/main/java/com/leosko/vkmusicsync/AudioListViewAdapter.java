@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class AudioListViewAdapter extends ArrayAdapter
 {
-    static final String LIST_AUDIO_PATTERN = "%1$s - %2$s [%3$s:%4$s]";
+    static final String LIST_AUDIO_PATTERN = "%1$s - %2$s [%3$02d:%4$02d]";
 
     private Context mContext;
     private int id;

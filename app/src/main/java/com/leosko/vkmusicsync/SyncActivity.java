@@ -39,11 +39,10 @@ import java.net.URLConnection;
 import java.util.LinkedList;
 import java.util.List;
 
-
 public class SyncActivity extends ActionBarActivity
 {
     static final String APP_ID = "4378706";
-    List<Audio> audioList;
+    static public List<Audio> audioList;
 
     private SharedPreferences sp;
     @Override

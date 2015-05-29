@@ -18,6 +18,11 @@
         android:summary="@string/pref_directory_summary"
         />
     <Preference
+        android:key="pref_removeNow"
+        android:title="@string/pref_remove_now_title"
+        android:summary="@string/pref_remove_now_summary"
+        />
+    <Preference
         android:key="pref_about"
         android:title="@string/pref_about_title"
         android:summary="@string/pref_about_summary"

@@ -26,4 +26,10 @@
     <string name="about_text">Программу написал Скороспелов Леонид для свободного распространения и использования. Исходники есть на https://github.com/LeoSko/VKMusicSyncAndroid, а также можете мне написать свои идеи и пожелания (leosko94@gmail.com).</string>
     <string name="send_mail">Отправить письмо</string>
     <string name="no_email_clients">Нет установленных почтовых клиентов</string>
+    <string name="pref_remove_now_summary">Удалить старые файлы (%1$d) из памяти</string>
+    <string name="pref_remove_now_title">Удалить старое</string>
+    <string name="remove_now_dialog_message">Удаляем:\n%1$s</string>
+    <string name="remove_now_dialog_title">Удалить файлы</string>
+    <string name="remove_now_dialog_no">Отмена</string>
+    <string name="remove_now_dialog_yes">Удалить</string>
 </resources>

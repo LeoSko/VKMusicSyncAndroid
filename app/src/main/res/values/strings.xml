@@ -28,4 +28,10 @@
     <string name="about_text">This program was created by Leonid Skorospelov for free use and contributing to. You can find sources on https://github.com/LeoSko/VKMusicSyncAndroid or email me (leosko94@gmail.com) freely to improve this software.</string>
     <string name="send_mail">Send mail</string>
     <string name="no_email_clients">There are no email clients installed</string>
+    <string name="pref_remove_now_title">Remove old files</string>
+    <string name="pref_remove_now_summary">Delete old files (%1$d) from memory</string>
+    <string name="remove_now_dialog_title">Remove files</string>
+    <string name="remove_now_dialog_message">Removing:\n%1$s</string>
+    <string name="remove_now_dialog_yes">Remove</string>
+    <string name="remove_now_dialog_no">Cancel</string>
 </resources>
